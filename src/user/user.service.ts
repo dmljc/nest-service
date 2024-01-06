@@ -36,12 +36,9 @@ export class UserService {
 
     async remove(id: number) {
         const resp = await this.userRepository.delete(id);
-        if (resp?.affected === 1) {
-            return {
-                data: true
-            }
-        } else {
-            return false;
-        }
+        return {
+            data: !!resp?.affected,
+            status: 200,
+        };
     }
 }
