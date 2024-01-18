@@ -13,9 +13,20 @@ export class User {
 
     @Column({
         length: 50,
-        comment: '用户名',
+        comment: '账号',
     })
     username: string;
+
+    @Column({
+        length: 50,
+        comment: '密码',
+    })
+    password: string;
+
+    @Column({
+        comment: '姓名',
+    })
+    name: string;
 
     @Column({
         comment: '性别',
@@ -23,17 +34,34 @@ export class User {
     sex: string;
 
     @Column({
+        comment: '身份证',
+    })
+    idCard: string;
+
+    @Column({
+        comment: '手机',
+    })
+    phone: string;
+
+    @Column({
+        comment: '邮箱',
+    })
+    email: string;
+
+    @Column({
         comment: '年龄',
     })
     age: string;
-    @Column({
-        comment: '手机号',
-    })
-    phone: string;
+
     @Column({
         comment: '备注',
     })
     remark: string;
+
+    @Column({
+        comment: '头像',
+    })
+    avatar: string;
 
     @CreateDateColumn({
         comment: '创建时间',
