@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Body } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -15,7 +15,7 @@ export class UserService {
         return await this.userRepository.save(createUserDto);
     }
 
-    async login(loginDto: LoginDto) {
+    async login(@Body() loginDto: LoginDto) {
         const existUser = await this.userRepository.findOneBy({
             username: loginDto.username,
         });

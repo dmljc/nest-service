@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/http-exception.filter';
 import { HttpResppnseInterceptor } from './common/http-response.interceptor';
@@ -13,6 +14,10 @@ async function bootstrap() {
 
     // 自定义全局异常过滤器
     app.useGlobalFilters(new HttpExceptionFilter());
+
+    // 全局验证管道
+    app.useGlobalPipes(new ValidationPipe());
+
     await app.listen(3000);
 }
 bootstrap();
