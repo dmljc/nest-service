@@ -22,7 +22,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
 
         response.status(status).json({
             status,
-            message: res?.message?.join() || message,
+            message: res?.message?.[0] || message,
             success: false,
             timestamp: new Date().toLocaleString(),
             // path: request.url,
